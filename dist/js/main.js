@@ -10,8 +10,10 @@ var waypoint = new Waypoint({
 var waypoint = new Waypoint({
   element: document.querySelector('.main__story'),
   handler: function handler() {
+    var section = document.querySelector('.main__story');
     var button = document.querySelector('.menu__button');
     button.classList.add('bounce');
+    section.classList.add("crazy");
     console.log("trigger-2");
   },
   offset: 500
@@ -37,6 +39,14 @@ var waypoint = new Waypoint({
     var catering = document.querySelector('.learn-more');
     catering.classList.add('shake');
     console.log("trigger-4");
+  },
+  offset: 500
+});
+var waypoint = new Waypoint({
+  element: document.querySelector('footer'),
+  handler: function handler() {
+    var fun = document.querySelector('footer');
+    fun.classList.add('wowza');
   },
   offset: 500
 }); //   each waypoint = section

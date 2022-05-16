@@ -293,6 +293,10 @@ body {
 	background-color:#f4c146;
 	position: relative;
 	height: 60vh;
+	transition: 2s all;
+	opacity: 0;
+	transform: translateY(-500px) scale(0) rotate(360deg);
+	transition-timing-function: cubic-bezier(0,2.03,.83,.67);
 	@include mixins.bp-large{
 		height:100vh;
 	}
@@ -395,6 +399,11 @@ body {
 	
 }
 
+.main__story.crazy{
+	opacity: 1;
+	transform: translateY(0px) scale(1) rotate(0deg);
+}
+
 .main__gallery{
 	display: flex;
 	flex-wrap: wrap;
@@ -471,6 +480,24 @@ body {
 	}
 	100% {
 		transform: rotateY(20deg);
+	}
+}
+
+@keyframes fun {
+	0% {
+		transform: scale(1) translate(0px,0px);
+	}
+	25% {
+		transform: scale(.2) translate(100px,50px);
+	}
+	50% {
+		transform: scale(1.6) translate(-60px,-12px);
+	}
+	75% {
+		transform: scale(.4) translate(500px,-80px);
+	}
+	100% {
+		transform: scale(1) translate(0px,0px);
 	}
 }
 
@@ -578,6 +605,9 @@ footer{
 	position: relative;
 	display: flex;
 	flex-direction: column;
+	transform: translate(-500px);
+	opacity: 0;
+	transition: 1.5s;
 
 	@include mixins.bp-large{
 		background-color: #FFDEE9;
@@ -722,4 +752,14 @@ footer{
 		}
 			
 	}
+}
+
+footer.wowza{
+	transform: translate(0px);
+	opacity: 1;
+	animation: fun;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
 }
